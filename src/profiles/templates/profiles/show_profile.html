@@ -58,7 +58,8 @@
                     </div>
                     <div class="panel-body">
                         <strong>Location</strong>: {{ show_user.profile.location }}<br><br>
-                        <strong>Bio</strong>: {{ show_user.profile.bio }}<br>
+                        <strong>Bio</strong>: {{ show_user.profile.bio }}<br><br>
+                        <strong>Level</strong>: {{ show_user.profile.get_surf_level_display }}<br>
                     </div>
                 </div>
             </div>

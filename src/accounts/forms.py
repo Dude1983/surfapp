@@ -8,7 +8,6 @@ from authtools import forms as authtoolsforms
 from django.contrib.auth import forms as authforms
 from django.core.urlresolvers import reverse
 
-
 class LoginForm(AuthenticationForm):
     remember_me = forms.BooleanField(required=False, initial=False)
 
