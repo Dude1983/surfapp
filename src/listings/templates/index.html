@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Listing{% endblock %}
+{% block navbar-left %}
+    {% include "_navbar.html" with active_link="home" %}
+{% endblock %}
+
+{% block navbar-right %}
+    {% if not user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+        <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block splash %}
+    <div class="jumbotron jumbotron-carousel corporate-jumbo">
+        <div class="container-full">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center v-center">
+                    <h1>Find Private Surf Guides Worldwide</h1>
+                    <form class="col-lg-12">
+                        <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
+                            <input type="text" class="center-block form-control input-lg" title="I want to surf in."
+                                   placeholder="I want to surf in...">
+                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button"
+                                                                  id="main_search_button_front">Search</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock splash %}
+
+{% block container %}
+    <a name="about"></a>
+    <div class="container">
+        <div class="row">
+            {% for listing in listings %}
+                <div class="col-lg-4">
+                    <h3> {{ listing.title }}<span><br> in {{ listing.user.profile.location }}</span></h3>
+                    <p><img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}" class="img-circle" alt="" /><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
+                    <p> USD {{ listing.price }}</p>
+                    <p><a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">See Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div><!-- /.container -->
+{% endblock container %}
+
+
+{% block scripts %}
+    <script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}
+

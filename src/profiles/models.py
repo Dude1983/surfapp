@@ -23,7 +23,7 @@ class BaseProfile(models.Model):
                                 null=True,
                                 blank=True)
     bio = models.CharField("Short Bio", max_length=200, blank=True, null=True)
-    location = models.CharField("Location", max_length=200, blank=True, null=True)
+    location = models.CharField("Location", max_length=200, blank=False, null=True)
     surf_level = models.IntegerField(choices=SURF_LEVEL, default=1)
     email_verified = models.BooleanField("Email verified", default=False)
 
