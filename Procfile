@@ -1,1 +1,1 @@
-web: gunicorn surfapp.wsgi
+web: gunicorn surfapp:app
