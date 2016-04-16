@@ -17,46 +17,95 @@
     {% endif %}
 {% endblock %}
 
-{% block splash %}
-    <div class="jumbotron jumbotron-carousel corporate-jumbo">
-        <div class="container-full">
+{% block container %}
+    <div class="text-page">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-sm-12 text-center v-center">
-                    <h1>Find Private Surf Guides Worldwide</h1>
-                    <form class="col-lg-12">
-                        <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
-                            <input type="text" class="center-block form-control input-lg" title="I want to surf in."
-                                   placeholder="I want to surf in...">
-                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button"
-                                                                  id="main_search_button_front">Search</button></span>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="form-section">
+                        <div class="row">
+                            <form role="form">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="location">Location</label>
+                                        <input type="email" class="form-control" id="location" placeholder="Where ?">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="checkin">Check in</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="checkin" placeholder="Check in">
+                                        <span class="input-group-addon"><i
+                                                class="glyphicon glyphicon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="checkout">Check out</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="checkout"
+                                                   placeholder="Check out">
+                                        <span class="input-group-addon"><i
+                                                class="glyphicon glyphicon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="guest">Guest</label>
+                                        <select id="guest" name="guest" class="form-control">
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guests</option>
+                                            <option value="3">3 Guests</option>
+                                            <option value="4">4 Guests</option>
+                                            <option value="5">5 Guests</option>
+                                            <option value="6">6 Guests</option>
+                                            <option value="7">7 Guests</option>
+                                            <option value="8">8 Guests</option>
+                                            <option value="9">9 Guests</option>
+                                            <option value="10">10 Guests</option>
+                                            <option value="11">11 Guests</option>
+                                            <option value="12">12 Guests</option>
+                                            <option value="13">13 Guests</option>
+                                            <option value="14">14 Guests</option>
+                                            <option value="15">15 Guests</option>
+                                            <option value="16">16+ Guests</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default btn-primary">Search</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br>
-{% endblock splash %}
+        <br>
+        <br>
 
-{% block container %}
-    <a name="about"></a>
-    <div class="container">
-        <div class="row">
-            {% for listing in listings %}
-                <div class="col-lg-4">
-                    <h3> {{ listing.title }}<span><br> in {{ listing.location }}</span></h3>
-                    <p><img title="listing picture" class="img-thumbnail img-responsive"
-                                               src="{% thumbnail listing.picture|default:'default_listing.png' 350x300 crop%}">
-                    </p>
-                    <p><img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}"
-                            class="img-circle"
-                            alt=""/><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
-                    <p> USD {{ listing.price }}</p>
-                    <p><a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">See Details</a>
-                </div>
-            {% endfor %}
+        <a name="about"></a>
+        <div class="container">
+            <div class="row">
+                {% for listing in listings %}
+                    <div class="col-lg-4">
+                        <h3> {{ listing.title }}<span><br> in {{ listing.location }}</span></h3>
+                        <p><img title="listing picture" class="img-thumbnail img-responsive"
+                                src="{% thumbnail listing.picture|default:'default_listing.png' 350x300 crop %}">
+                        </p>
+                        <p>
+                            <img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}"
+                                 class="img-circle"
+                                 alt=""/><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
+                        <p> USD {{ listing.price }}</p>
+                        <p><a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">See Details</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
     </div><!-- /.container -->
 {% endblock container %}
 
