@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT surfapp.wsgi:application
+web: waitress-serve --port=$PORT surfapp.src.surfapp.wsgi:application
