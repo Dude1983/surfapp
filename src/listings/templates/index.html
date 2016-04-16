@@ -44,8 +44,13 @@
         <div class="row">
             {% for listing in listings %}
                 <div class="col-lg-4">
-                    <h3> {{ listing.title }}<span><br> in {{ listing.user.profile.location }}</span></h3>
-                    <p><img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}" class="img-circle" alt="" /><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
+                    <h3> {{ listing.title }}<span><br> in {{ listing.location }}</span></h3>
+                    <p><img title="listing picture" class="img-thumbnail img-responsive"
+                                               src="{% thumbnail listing.picture|default:'default_listing.png' 350x300 crop%}">
+                    </p>
+                    <p><img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}"
+                            class="img-circle"
+                            alt=""/><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
                     <p> USD {{ listing.price }}</p>
                     <p><a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">See Details</a>
                 </div>

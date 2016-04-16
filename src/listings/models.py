@@ -10,6 +10,10 @@ class Listing(models.Model):
     location = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True)
+    picture = models.ImageField('Listing picture',
+                                upload_to='listing_images/%Y-%m-%d/',
+                                null=True,
+                                blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     pub_date = models.DateField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
