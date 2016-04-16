@@ -1,1 +1,1 @@
-web: gunicorn surfapp:app
+web: gunicorn surfapp.wsgi --log-file -
