@@ -27,3 +27,6 @@ if settings.DEBUG:
         application = DebuggedApplication(application, evalex=True)
     except ImportError:
         pass
+
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)
