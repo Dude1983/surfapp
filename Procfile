@@ -1,1 +1,1 @@
-web: gunicorn surfapp.wsgi --log-file -
+web: gunicorn --pythonpath="$PWD/surfapp" surfapp.wsgi
