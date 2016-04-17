@@ -27,6 +27,10 @@ STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
 
+# Added to work with Python Anywhere
+DATABASE_URL=mysql://Dude1983:Hkdscpl1983!@Dude1983.mysql.pythonanywhere-services.com
+
+
 # Reset logging
 LOGGING_CONFIG = None
 LOGGING = {
