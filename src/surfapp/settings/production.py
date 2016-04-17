@@ -8,7 +8,7 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 # Must mention ALLOWED_HOSTS in production!
-# ALLOWED_HOSTS = ["surfapp.com"]
+ALLOWED_HOSTS = ["dude1983.pythonanywhere.com"]
 
 # Cache the templates in memory for speed-up
 loaders = [
