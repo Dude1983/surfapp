@@ -30,7 +30,6 @@ class BaseProfile(models.Model):
     class Meta:
         abstract = True
 
-
 @python_2_unicode_compatible
 class Profile(BaseProfile):
     def __str__(self):

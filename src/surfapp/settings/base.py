@@ -122,6 +122,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Added 16th April
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+
 ALLOWED_HOSTS = []
 
 # Crispy Form Theme - Bootstrap 3
