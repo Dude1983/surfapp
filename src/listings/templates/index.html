@@ -90,9 +90,11 @@
         <a name="about"></a>
         <div class="container">
             <div class="row">
-                {% for listing in listings %}
+                {% for listing in listing_list %}
                     <div class="col-lg-4">
-                        <h3> {{ listing.title }}<span><br> in {{ listing.location }}</span></h3>
+                        <h3>
+                            <a href="{% url 'listing_detail' slug=listing.slug %}">{{ listing.title }}</a><span><br> in {{ listing.location }}</span>
+                        </h3>
                         <p><img title="listing picture" class="img-thumbnail img-responsive"
                                 src="{% thumbnail listing.picture|default:'default_listing.png' 350x300 crop %}">
                         </p>

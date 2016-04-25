@@ -6,6 +6,39 @@
 {% block title %}{{ block.super }}Listing{% endblock %}
 
 {% block container %}
+    <div class="container">
+        <div class="row">
+            <h2>{{ listing.title }}<span> in {{ listing.location }}</span>
+                <p><img title="listing picture" class="img-thumbnail img-responsive"
+                        src="{% thumbnail show_listing.picture|default:'default_listing.png' 350x300 crop %}">
+                </p>
+                <h4>{{ listing.price }}<span></h4>
+                <p>{{ listing.description }}</p>
+                <hr>
+                <br><br>
+                <div class="container-fluid well span6">
+                    <h3> Meet {{ listing.user.name }}</h3><br>
+                    <div class="row-fluid">
+                        <div class="col-lg-3 col-sm-3">
+                            <img title="profile picture" class="img-circle img-responsive"
+                                 src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 140x140 crop %}">
+                        </div>
 
+                        <div class="col-lg-3 col-sm-3">
+                            <h4><b>E-Mail:</b> {{ listing.user.email }}</h4>
+                            <h4><b>Location:</b> {{ listing.user.profile.location }}</h4>
+                            <h4><b>Bio:</b> {{ listing.user.profile.bio }}</h4>
+                            <h4><b>Experience:</b> {{ listing.user.profile.get_surf_level_display }}</h4>
+                        </div>
+                    </div>
+
+                    <div class="span2">
+
+                    </div>
+                </div>
+        </div>
+
+    </div>
+    </div>
 
 {% endblock %}

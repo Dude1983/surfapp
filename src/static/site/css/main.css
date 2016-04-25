@@ -2,6 +2,7 @@
 
 html, body{
     height:100%;		/* For full height images */
+    padding-top: 40px;
 }
 
 .starter-template {
