@@ -8,7 +8,12 @@ from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 
 class Listing(models.Model):
-    approved = models.BooleanField(default=False, blank=True)
+    COUNTRIES =   ((1, 'Beginner'),
+                  (2, 'Intermediate'),
+                  (3, 'Advanced'),
+                  (4, 'PRO Surfer'))
+
+
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -18,6 +23,7 @@ class Listing(models.Model):
                                 null=True,
                                 blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    published = models.BooleanField(default=False, blank=True)
     pub_date = models.DateTimeField('date created', default=datetime.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 

@@ -4,6 +4,7 @@ from django.views import generic
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
@@ -22,18 +23,19 @@ from listings.forms import ListingForm
 class ListingListView(ListView):
     model = Listing
     template_name = "index.html"
-    queryset = Listing.objects.prefetch_related('user').filter(approved=True)
+    queryset = Listing.objects.prefetch_related('user').filter(published=True)
 
 class ShowListing(DetailView):
     model = Listing
     template_name = "listings/show_listing.html"
 
 @method_decorator(login_required(), name='dispatch')
-class ListingCreate(CreateView):
+class ListingCreate(SuccessMessageMixin, CreateView):
     model = Listing
     form_class = ListingForm
     template_name = "listings/listings_form.html"
     success_url = '/'
+    success_message = "Thank You. Your listing will be reviewed and approved within 24 hours."
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

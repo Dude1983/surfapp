@@ -4,14 +4,14 @@ from listings.models import Listing
 
 class ListingAdmin(admin.ModelAdmin):
     model = Listing
-    list_display = ('title', 'location', 'slug', 'price', 'user', 'approved')
+    list_display = ('title', 'location', 'slug', 'price', 'user', 'published')
     actions = ['publish', 'unpublish']
 
     def publish(self, request, queryset):
-        queryset.update(approved=True)
+        queryset.update(published=True)
 
     def unpublish(self, request, queryset):
-        queryset.update(approved=False)
+        queryset.update(published=False)
 
 
     publish.short_description = "Publish Listings"
