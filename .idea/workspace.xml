@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe6b5f3-710e-458e-8f60-8afd778c0284" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/admin.py" afterPath="$PROJECT_DIR$/src/listings/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/forms.py" afterPath="$PROJECT_DIR$/src/listings/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/models.py" afterPath="$PROJECT_DIR$/src/listings/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/urls.py" afterPath="$PROJECT_DIR$/src/listings/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/views.py" afterPath="$PROJECT_DIR$/src/listings/views.py" />
     </list>
     <ignored path="surfapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,8 +72,8 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/listings/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -190,8 +185,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="55" />
-    <option name="y" value="118" />
+    <option name="x" value="111" />
+    <option name="y" value="44" />
     <option name="width" value="1440" />
     <option name="height" value="812" />
   </component>
@@ -817,7 +812,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="118" width="1440" height="812" extended-state="0" />
+    <frame x="111" y="44" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23104435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1208,8 +1203,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/listings/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="250">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
