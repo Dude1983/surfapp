@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from django.core.urlresolvers import reverse_lazy
 from os.path import dirname, join, exists
 import os
+from .config import *
 
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(dirname(__file__)))
@@ -31,12 +32,15 @@ TEMPLATES = [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
                 # list if you haven't customized them:
                 'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.request',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -71,6 +75,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
 
     'authtools',
     'crispy_forms',
@@ -88,6 +93,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -142,9 +148,19 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-# Authentication Settings
-AUTH_USER_MODEL = 'authtools.User'
-LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
-LOGIN_URL = reverse_lazy("accounts:login")
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.Facebook2OAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
+
+# Authentication Settings
+AUTH_USER_MODEL = 'authtools.User'
+LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
+LOGIN_URL = reverse_lazy("accounts:login")

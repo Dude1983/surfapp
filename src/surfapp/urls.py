@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
     url(r'^listings/', include(listings.urls)),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ]
 
 # User-uploaded files like profile pics need to be served in development
