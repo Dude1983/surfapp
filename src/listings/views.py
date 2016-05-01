@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
 from django.views import generic
 from django.views.generic.list import ListView
@@ -22,6 +23,7 @@ from listings.forms import ListingForm
 
 class ListingListView(ListView):
     model = Listing
+    paginate_by = 3
     template_name = "index.html"
     queryset = Listing.published.prefetch_related('user')
 
