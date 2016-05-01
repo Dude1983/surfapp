@@ -92,9 +92,9 @@
             <div class="row">
                 {% for listing in listing_list %}
                     <div class="col-lg-4">
-                        <h3>
-                            <a href="{% url 'listing_detail' slug=listing.slug %}">{{ listing.title }}</a><span><br> in {{ listing.location }}</span>
-                        </h3>
+                        <h4><b>
+                            <a href="{% url 'listing_detail' slug=listing.slug %}">{{ listing.title|truncatechars:40 }}</a><span></b><br><h4>in {{ listing.country.name }} <img src="{%  static listing.country.flag  %}"</img></h4></span>
+                        </h4>
                         <p><img title="listing picture" class="img-thumbnail img-responsive"
                                 src="{% thumbnail listing.picture|default:'default_listing.png' 350x300 crop %}">
                         </p>
@@ -102,7 +102,7 @@
                             <img src="{% thumbnail listing.user.profile.picture|default:'default_profile.png' 25x25 crop %}"
                                  class="img-circle"
                                  alt=""/><span> </span>{{ listing.user.name }}<span> / </span> {{ listing.user.profile.get_surf_level_display }}</span>
-                        <p> USD {{ listing.price }}</p>
+                        <p>USD {{ listing.price }}</p>
                         <p><a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">See Details</a>
                     </div>
                 {% endfor %}

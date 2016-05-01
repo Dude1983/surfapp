@@ -6,6 +6,7 @@ from .models import Listing
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+from django_countries.widgets import CountrySelectWidget
 
 
 class ListingForm(ModelForm):
@@ -24,6 +25,7 @@ class ListingForm(ModelForm):
         self.helper.form_tag = False
         self.helper.layout = Layout(
             Field('title'),
+            Field('country'),
             Field('location'),
             Field('description'),
             Field('price'),
@@ -34,5 +36,5 @@ class ListingForm(ModelForm):
     class Meta:
         model = Listing
         exclude = ['user', 'pub_date', 'status']
-
+        widgets = {'country': CountrySelectWidget()}
 

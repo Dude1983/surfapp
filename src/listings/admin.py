@@ -4,7 +4,7 @@ from listings.models import Listing
 
 class ListingAdmin(admin.ModelAdmin):
     model = Listing
-    list_display = ('title', 'location', 'slug', 'price', 'user', 'status')
+    list_display = ('title', 'country', 'slug', 'price', 'user', 'status')
     actions = ['publish', 'unpublish']
 
     def publish(self, request, queryset):
