@@ -3,6 +3,7 @@ from django.utils.encoding import python_2_unicode_compatible
 import uuid
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
@@ -45,11 +46,11 @@ class Listing(models.Model):
     objects = models.Manager()
     published = PublishedManager()
 
+    def get_absolute_url(self):
+        return reverse('listings:detail', args=[self.id, self.slug])
+
     def get_slug_name(self):
         return self.title + '-' + self.location
-
-    def get_absolute_url(self):
-        return reverse('listing-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title

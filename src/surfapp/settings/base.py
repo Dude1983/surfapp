@@ -11,6 +11,11 @@ from django.core.urlresolvers import reverse_lazy
 from os.path import dirname, join, exists
 import os
 
+# REDIS
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
+
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(dirname(__file__)))
 STATICFILES_DIRS = [join(BASE_DIR, 'static')]

@@ -14,6 +14,9 @@
                 </p>
                 <h4>{{ listing.price }}<span></h4>
                 <p>{{ listing.description }}</p>
+                <span class="count">
+                    <span class="total">{{ total_views }}</span> view{{ total_views|pluralize }}
+                    </span>
                 <hr>
                 <br><br>
                 <div class="container-fluid well span6">
