@@ -23,7 +23,7 @@ from listings.forms import ListingForm
 class ListingListView(ListView):
     model = Listing
     template_name = "index.html"
-    queryset = Listing.objects.prefetch_related('user').filter(published=True)
+    queryset = Listing.published.prefetch_related('user')
 
 class ShowListing(DetailView):
     model = Listing

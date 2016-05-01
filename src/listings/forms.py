@@ -33,6 +33,6 @@ class ListingForm(ModelForm):
 
     class Meta:
         model = Listing
-        exclude = ['user', 'pub_date', 'published']
+        exclude = ['user', 'pub_date', 'status']
 
 

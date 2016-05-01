@@ -7,11 +7,16 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status='published')
+
 class Listing(models.Model):
-    COUNTRIES =   ((1, 'Beginner'),
-                  (2, 'Intermediate'),
-                  (3, 'Advanced'),
-                  (4, 'PRO Surfer'))
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
 
 
     title = models.CharField(max_length=100)
@@ -23,9 +28,14 @@ class Listing(models.Model):
                                 null=True,
                                 blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    published = models.BooleanField(default=False, blank=True)
     pub_date = models.DateTimeField('date created', default=datetime.now)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+    objects = models.Manager()
+    published = PublishedManager()
+
 
     def get_slug_name(self):
         return self.title + '-' + self.location
