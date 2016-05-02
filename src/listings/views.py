@@ -46,8 +46,6 @@ class ListingListView(ListView):
 #     def get_context_data(self, **kwargs):
 #         listing = Listing.get(id=id, slug=slug)
 
-
-
 @method_decorator(login_required(), name='dispatch')
 class ListingCreate(SuccessMessageMixin, CreateView):
     model = Listing
@@ -60,3 +58,12 @@ class ListingCreate(SuccessMessageMixin, CreateView):
         self.object = form.save(commit=False)
         self.object.user_id = self.request.user.id
         return super(ListingCreate, self).form_valid(form)
+
+def browse_by_country(request, country=None):
+    if country:
+        listings = Listing.published.filter(country__istartswith=country)
+        listings = listings.order_by('country')
+    else:
+        listings = Listing.published.all().order_by('title')
+
+    return render(request, 'search/_search.html', { 'listings': listings, 'country': country, })

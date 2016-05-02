@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block container %}
+    {% for listing in listings %}c
+        <ul>
+            <li>
+                {{ listing.title }}
+            </li>
+        </ul>
+        {% empty %}
+        <p>Sorry, no results</p>
+    {% endfor %}
+{% endblock %}
+
