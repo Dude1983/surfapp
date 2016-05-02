@@ -14,9 +14,11 @@
                 </p>
                 <h4>{{ listing.price }}<span></h4>
                 <p>{{ listing.description }}</p>
-                <span class="count">
-                    <span class="total">{{ total_views }}</span> view{{ total_views|pluralize }}
+                {%  if total_views > 0 %}
+                    <span class="count">
+                        <span class="total">{{ total_views }}</span> view{{ total_views|pluralize }}
                     </span>
+                {%  endif %}
                 <hr>
                 <br><br>
                 <div class="container-fluid well span6">

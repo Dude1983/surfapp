@@ -24,13 +24,13 @@ r = redis.StrictRedis(host=settings.REDIS_HOST,
 def listing_detail(request, slug):
     listing = get_object_or_404(Listing, slug=slug)
 
-    # increment total image views by 1
-    total_views = r.incr('listing:{}:views'.format(listing.slug))
-    return render(request,
-              'listings/show_listing.html',
-              {'section': 'listings',
-               'listing': listing,
-               'total_views': total_views})
+    try:
+        r.ping
+        # increment total image views by 1
+        total_views = r.incr('listing:{}:views'.format(listing.slug))
+        return render(request, 'listings/show_listing.html', {'section': 'listings', 'listing': listing, 'total_views': total_views})
+    except redis.ConnectionError:
+        return render(request, 'listings/show_listing.html', {'section': 'listings', 'listing': listing })
 
 class ListingListView(ListView):
     model = Listing

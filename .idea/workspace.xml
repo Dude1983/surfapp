@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe6b5f3-710e-458e-8f60-8afd778c0284" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/listings/templatetags/listing_tags.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/models.py" afterPath="$PROJECT_DIR$/src/listings/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/templates/index.html" afterPath="$PROJECT_DIR$/src/listings/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/templates/listings/show_listing.html" afterPath="$PROJECT_DIR$/src/listings/templates/listings/show_listing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/urls.py" afterPath="$PROJECT_DIR$/src/listings/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/listings/views.py" afterPath="$PROJECT_DIR$/src/listings/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/surfapp/settings/base.py" afterPath="$PROJECT_DIR$/src/surfapp/settings/base.py" />
     </list>
     <ignored path="surfapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,8 +66,8 @@
       <file leaf-file-name="show_listing.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/listings/templates/listings/show_listing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+            <state relative-caret-position="517">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -105,8 +100,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/listings/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="448">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -185,9 +180,9 @@
         <option value="$PROJECT_DIR$/src/listings/templatetags/listing_tags.py" />
         <option value="$PROJECT_DIR$/src/listings/templates/index.html" />
         <option value="$PROJECT_DIR$/src/surfapp/settings/base.py" />
-        <option value="$PROJECT_DIR$/src/listings/templates/listings/show_listing.html" />
         <option value="$PROJECT_DIR$/src/listings/models.py" />
         <option value="$PROJECT_DIR$/src/listings/urls.py" />
+        <option value="$PROJECT_DIR$/src/listings/templates/listings/show_listing.html" />
         <option value="$PROJECT_DIR$/src/listings/views.py" />
       </list>
     </option>
@@ -1094,14 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/listings/templates/listings/show_listing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/listings/templatetags/listing_tags.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1132,10 +1119,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/listings/templates/listings/show_listing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/listings/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="26" />
+        <state relative-caret-position="448">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
