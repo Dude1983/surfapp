@@ -21,6 +21,17 @@ r = redis.StrictRedis(host=settings.REDIS_HOST,
                       port=settings.REDIS_PORT,
                       db=settings.REDIS_DB)
 
+class ListingListView(ListView):
+    model = Listing
+    context_object_name = "listings"
+    paginate_by = 3
+    template_name = "index.html"
+    queryset = Listing.published.prefetch_related('user')
+
+
+def search_form(request):
+    return render(request, 'search_form.html')
+
 def listing_detail(request, slug):
     listing = get_object_or_404(Listing, slug=slug)
 
@@ -32,11 +43,6 @@ def listing_detail(request, slug):
     except redis.ConnectionError:
         return render(request, 'listings/show_listing.html', {'section': 'listings', 'listing': listing })
 
-class ListingListView(ListView):
-    model = Listing
-    paginate_by = 3
-    template_name = "index.html"
-    queryset = Listing.published.prefetch_related('user')
 
 
 # class ShowListing(DetailView):
@@ -60,10 +66,11 @@ class ListingCreate(SuccessMessageMixin, CreateView):
         return super(ListingCreate, self).form_valid(form)
 
 def browse_by_country(request, country=None):
-    if country:
-        listings = Listing.published.filter(country__istartswith=country)
+    if 'country' in request.GET and request.GET['country']:
+        country = request.GET['country']
+        listings = Listing.published.filter(country__contains=country)
         listings = listings.order_by('country')
+        return render(request, 'index.html', {'listings': listings, 'country': country,})
     else:
         listings = Listing.published.all().order_by('title')
-
-    return render(request, 'search/_search.html', { 'listings': listings, 'country': country, })
+    return render(request, 'index.html', {'listings': listings, 'error': True})

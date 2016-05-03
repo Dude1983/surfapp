@@ -11,6 +11,8 @@ from django_countries.fields import CountryField
 from django_countries import Countries
 
 
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
@@ -18,7 +20,7 @@ class PublishedManager(models.Manager):
 class SurfCountries(Countries):
     only = [
         'FR', 'DE', 'MX', 'AR', 'AU', 'BB', 'BR',
-        'CR', 'IN', 'ID', 'IE', 'JP', 'MV', 'MA',
+        'CR', 'ID', 'IE', 'JP', 'MV', 'MA',
         'NZ', 'NI','PT', 'PR', 'ZA', 'ES', 'LK',
         'TH','GB','US'
     ]
@@ -57,4 +59,3 @@ class Listing(models.Model):
 
     class Meta:
         ordering = ('title', 'location', 'description', 'price', 'picture')
-
